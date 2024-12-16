@@ -42,7 +42,7 @@ const ans= mydata.map((key)=>{
         </Card.Text>
 
         <Button variant="primary"
-         onClick={()=>{dispatch(addToCart({id:key.id, name:key.name, desc:key.description, cate:key.category, price:key.price, images:key.images }))}}>
+         onClick={()=>{dispatch(addToCart({id:key.id, name:key.name, desc:key.description, cate:key.category, price:key.price, images:key.images, qnty:1 }))}}>
           Add To Cart</Button>
       </Card.Body>
     </Card>
