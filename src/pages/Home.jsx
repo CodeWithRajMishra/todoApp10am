@@ -6,15 +6,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from 'react';
 import axios from "axios";
-
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../productSlice';
-
+import { useNavigate } from 'react-router-dom';
 
 const Home=()=>{
 const [mydata, setMydata]= useState([]);
 const dispatch= useDispatch();
-
+const navigate=useNavigate();
 
 const loadData=()=>{
   let api="http://localhost:3000/products";
@@ -31,7 +30,12 @@ const ans= mydata.map((key)=>{
     <>
     
     <Card style={{ width: '18rem', marginTop:"20px" }}>
-      <Card.Img variant="top" src={key.images} height="250" />
+
+      
+      <Card.Img variant="top" style={{cursor:'pointer'}}
+       src={key.images} height="250" onClick={()=>{navigate(`/showproduct/${key.id}`)}} />
+      
+      
       <Card.Body>
         <Card.Title> {key.name} </Card.Title>
         <Card.Text>

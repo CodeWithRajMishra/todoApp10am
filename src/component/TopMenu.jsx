@@ -8,11 +8,13 @@ const TopMenu=()=>{
          
          <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">ShoPee</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link as={Link} to="men">Men Collections</Nav.Link>
+            <Nav.Link as={Link} to="women">WoMen Collections</Nav.Link>
+            <Nav.Link as={Link} to="kids">Kids Collections</Nav.Link>
+            <Nav.Link as={Link} to="search">Search</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
