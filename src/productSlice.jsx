@@ -1,3 +1,4 @@
+import { message } from "antd";
 import { createSlice } from "@reduxjs/toolkit";
 const productSlice= createSlice({
     name:"myproduct",
@@ -6,9 +7,14 @@ const productSlice= createSlice({
     },
     reducers:{
         addToCart:(state, actions)=>{
-            state.cart.push(actions.payload);
+            let myData= state.cart.filter((key)=>key.id==actions.payload.id);
+            if (myData.length>=1){
+             message.error("Product aleready Added!!");
+            }
+            else{
+                state.cart.push(actions.payload);
+            }
         },
-
 
         qntyIncrement:(state, actions)=>{
             for (var i=0; i<state.cart.length; i++)
@@ -37,12 +43,9 @@ const productSlice= createSlice({
                     }
 
                    
-                }
-                
+                }   
             }
-
         },
-
         itemRemove:(state, actions)=>{
             console.log(actions.payload.id);
             state.cart=state.cart.filter(item=>item.id!=actions.payload.id);
@@ -51,4 +54,3 @@ const productSlice= createSlice({
 })
 export const{addToCart, qntyIncrement, qntyDecrement, itemRemove} = productSlice.actions;
 export default productSlice.reducer;
-
